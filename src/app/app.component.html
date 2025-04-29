@@ -1,40 +1,31 @@
-<div class="app" >
-
-      <h1>Salom Dunyo</h1>
-
-     
-
-    <ul>
-      <li *ngFor="let item of Items" > 
-
-       <b> Raqami:   {{ item.id }}  </b> 
-       <br>
-        <span> Turi:  {{ item.category }}</span>
-
-        <!-- <img src=`${ item.image }`   alt=""> -->
-
-        <img src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" alt="Product Image" width="50 ">
 
 
+<app-navbar></app-navbar>
 
 
-        <br>
-        <i> Narxi:  {{ item.price }}$</i>
+<div class="app">
+  <h1>Assalomu Alaykum</h1>
+  <div class="card">
+    <div class="cards" *ngFor="let item of Items">
+      <b> Raqami: {{ item.id }} </b>
 
+      <br />
 
-      </li>
-    </ul>
+      <img src="{{ item.image }}" alt="Xatolik" width="200" height="300" />
 
+      <span> Turi: {{ item.category }}</span>
+      <b>{{ item.title.slice(0, 75) + '...' }}</b>
+      <p>{{    item.description.slice(0, 125) + '...'  }}</p>
 
+      <i> Narxi: {{ item.price }}$</i>
+      <br>
+      <button>
+          Ko'rish
+      </button>
 
-
+    </div>
+  </div>
 </div>
 
 
-
-
-
-
-<!-- <app-home></app-home>
-
-<app-work></app-work> -->
+<app-footer></app-footer>

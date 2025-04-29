@@ -1,12 +1,67 @@
-
-
 .app{
-
-    width: 100vw;
-    height: 100vh;
-    border: 2px solid green;
+    padding: 0px;
 }
 
 h1{
     color: red;
+}
+
+.card{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cards{
+    width: 450px;
+    height: 620px;
+    border: 1px solid black;
+    border-radius: 5%;
+    margin: 10px;
+    padding: 10px;
+    font-size: 20px;
+
+}
+
+.cards > b {
+    font-size: 24px;
+    color: green;
+}
+
+.cards > img {
+    border: 1px solid silver;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 10px 0px 10px 0px;
+}
+
+.cards > span {
+    display: block;
+    font-size: 30px;
+    font-weight: bold ;
+}
+
+.cards > i {
+    font-size: 24px;
+    color: red;
+}
+
+.cards > p {
+    margin: 10px 0px 10px 0px;
+}
+
+
+.cards > button{
+    display: inline-block;
+    color: white;
+    background-color: green;
+    width: 25%;
+    height: 32px;
+    margin-top: 10px;
+    border: 1px solid silver;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cards > button:active{
+    background-color: rgb(121, 240, 121);
 }
