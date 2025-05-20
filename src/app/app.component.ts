@@ -1,73 +1,36 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
-
-interface Product {
-  id: number;
-  title: string;
-  price: number;
-  description: string;
-  category: string;
-  image: string;
-  rating: {
-    rate: number;
-    count: number;
-  };
-
-  fullStars?: number[];
-  halfStar?: boolean;
-  emptyStars?: number[];
-}
+import { ProductServiceService } from './Serivces/product-service.service';
+import { Product } from './Interfaces/Product';
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, HttpClientModule, NavbarComponent, FooterComponent],
+  imports: [CommonModule, NavbarComponent, FooterComponent],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'], // to‘g‘rilangan
+  styleUrls: ['./app.component.css'], 
 })
 export class AppComponent implements OnInit {
   title = 'Salom bu Asosiy Componenta';
   Items: Product[] = [];
-
-  fullStars: number[] = [1, 2]; // to‘liq yulduzlar
+  fullStars: number[] = [1, 2]; 
   halfStar: boolean = true;
-  emptyStars: number[] = [1, 2]; // bo‘sh yulduzlar
+  emptyStars: number[] = [1, 2]; 
 
-  constructor(private http: HttpClient) {}
-
-  getPosts() {
-    return this.http.get<Product[]>('https://fakestoreapi.com/products'); //{}
-  }
+  constructor(private ProductService: ProductServiceService) {}
 
   ngOnInit(): void {
-
-    this.getPosts().subscribe((res) => {
+    this.ProductService.getPosts().subscribe((res) => {
       this.Items = res;
 
       this.Items.forEach((item) => {
-        const stars = this.calculateStars(item.rating.rate); // 3.9
+        const stars = this.ProductService.calculateStars(item.rating.rate); // 3.9
+
         item.fullStars = stars.fullStars;
         item.halfStar = stars.halfStar;
         item.emptyStars = stars.emptyStars;
-        
       });
     });
-  }
-
-
-  calculateStars(rate: number) { // 3.9
-
-
-    const full = Math.floor(rate);  // 3.9 => 3
-    const half = rate - full >= 0.5; // 3.9 - 3 = 0.9 => true
-    const empty = 5 - full - (half ? 1 : 0); // 5 - 3 - 1 = 1
-
-    return {
-      fullStars: Array(full).fill(0), // to‘liq yulduzlardan iborat massiv => [0, 0, 0]
-      halfStar: half,  // yarmi yulduzmi yoki yo‘qmi = > true
-      emptyStars: Array(empty).fill(0), //  bo‘sh yulduzlardan iborat massiv => [0]
-    };
   }
 }
