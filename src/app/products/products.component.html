@@ -1,0 +1,43 @@
+<div class="app">
+
+  <h1>Assalomu Alaykum</h1>
+
+  
+  <div class="card">
+    <div class="cards" *ngFor="let item of Items">
+      <b> Raqami: {{ item.id }} </b>
+
+      <br />
+
+      <img src="{{ item.image }}" alt="Xatolik" width="200" height="300" />
+
+      <span> Turi: {{ item.category }}</span>
+      <b>{{ item.title.slice(0, 75) + "..." }}</b>
+      <p>{{ item.description.slice(0, 125) + "..." }}</p>
+
+      <i> Narxi: {{ item.price }}$</i>
+
+      <br />
+      <br />
+      <b class="count"> Soni: {{ item.rating.count }} ta </b>
+      <br />
+      <div class="stars">
+        <ng-container *ngFor="let s of item.fullStars">
+          <span class="star full">&#9733;</span>
+        </ng-container>
+
+        <span *ngIf="item.halfStar" class="star half">&#9733;</span>
+
+        <ng-container *ngFor="let s of item.emptyStars">
+          <span class="star empty">&#9733;</span>
+        </ng-container>
+      </div>
+
+      <br />
+      <button>Ko'rish</button>
+      <br />
+    </div>
+  </div>
+
+
+</div>
