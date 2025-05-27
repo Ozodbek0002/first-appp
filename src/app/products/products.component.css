@@ -1,71 +1,142 @@
-
-
-
 h1 {
-  color: red;
+  color: rgb(255, 136, 0);
+  text-align: center;
+  font-size: 72px;
+  margin: 20px 0;
 }
 
-.card {
+.search {
+  display: flex;
+  justify-content: start;
+  margin: 20px;
+  /* padding: 0px 20px; */
+  font-size: 20px;
+  height: 30px;
+
+  input {
+    width: 300px;
+    height: 30px;
+    border: 1px solid silver;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 16px;
+  }
+
+  button {
+    width: 100px;
+    height: 42px;
+    border: 1px solid silver;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: green;
+    color: white;
+    cursor: pointer;
+  }
+}
+
+.cards-wrapper {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
 }
 
 .cards {
-  width: 450px;
-  height: 750px;
+  position: relative;
+  width: 400px;
+  height: 730px;
   border: 1px solid black;
   border-radius: 5%;
   margin: 10px;
   padding: 15px;
   font-size: 20px;
+
+  b {
+    font-size: 24px;
+    color: green;
+  }
+
+  .image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    width: 100%;
+    margin: 15px;
+  }
+  img {
+    position: relative;
+    right: 15px;
+    border: 1px solid silver;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 10px 0px 10px 0px;
+    width: 80%;
+    justify-content: center !important;
+  }
+
+  img:hover {
+    transform: scale(1.05);
+    transition: all 0.5s ease;
+  }
+
+  span {
+    display: block;
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  i {
+    font-size: 24px;
+    color: red;
+  }
+
+  p {
+    margin: 10px 0px 10px 0px;
+  }
 }
 
-.cards > b {
-  font-size: 24px;
-  color: green;
-}
-
-.cards > .count {
+.count {
   color: black;
   margin: 30px 0px 30px 0px !important;
 }
 
-.cards > img {
-  border: 1px solid silver;
-  border-radius: 5px;
-  padding: 5px;
-  margin: 10px 0px 10px 0px;
-}
+.show-product {
+  position: absolute;
+  width: 100%;
+  bottom: 10px;
+  right: 5px;
+  text-align: center;
 
-.cards > span {
-  display: block;
-  font-size: 30px;
-  font-weight: bold;
-}
+  button {
+    color: white;
+    background-color: green;
+    width: 50%;
+    height: 50px;
+    margin-top: 10px;
+    border: 1px solid silver;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    text-align: center;
+    line-height: 50px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    text-transform: uppercase;
+  }
 
-.cards > i {
-  font-size: 24px;
-  color: red;
-}
+  button:hover {
+    background-color: rgb(80, 159, 80);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+    width: 75%;
+    height: 50px;
+    transition: all 0.5s ease;
+  }
 
-.cards > p {
-  margin: 10px 0px 10px 0px;
-}
-
-.cards > button {
-  display: inline-block;
-  color: white;
-  background-color: green;
-  width: 25%;
-  height: 32px;
-  margin-top: 10px;
-  border: 1px solid silver;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.cards > button:active {
-  background-color: rgb(121, 240, 121);
+  button:active {
+    background-color: rgb(121, 240, 121);
+  }
 }
 
 .stars {

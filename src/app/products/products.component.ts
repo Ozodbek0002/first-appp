@@ -11,6 +11,7 @@ import { ProductServiceService } from '../Serivces/product-service.service';
 })
 export class ProductsComponent implements OnInit {
   Items: Product[] = [];
+  originalItems: Product[] = [];
   fullStars: number[] = [1, 2];
   halfStar: boolean = true;
   emptyStars: number[] = [1, 2];
@@ -20,6 +21,7 @@ export class ProductsComponent implements OnInit {
   ngOnInit(): void {
     this.ProductService.getPosts().subscribe((res) => {
       this.Items = res;
+      this.originalItems = [...this.Items];
 
       this.Items.forEach((item) => {
         const stars = this.ProductService.calculateStars(item.rating.rate); // 3.9
@@ -29,5 +31,19 @@ export class ProductsComponent implements OnInit {
         item.emptyStars = stars.emptyStars;
       });
     });
+  }
+
+  search(text: string) {
+    if (text) {
+      this.Items = this.originalItems.filter((item) =>
+        item.title.toLowerCase().includes(text.toLowerCase())
+      );
+    } else {
+      this.Items = [...this.originalItems];
+    }
+  }
+
+  showProduct(id: number) {
+    alert(`Product ID: ${id}`);
   }
 }
