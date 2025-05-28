@@ -14,6 +14,7 @@ import { Router } from '@angular/router';
 export class ProductsComponent implements OnInit {
   Items: Product[] = [];
   originalItems: Product[] = [];
+  originalItems: Product[] = [];
   fullStars: number[] = [1, 2];
   halfStar: boolean = true;
   emptyStars: number[] = [1, 2];

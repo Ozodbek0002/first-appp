@@ -1,5 +1,6 @@
 <div class="app">
   <h1>Mahsulotlar</h1>
+  <h1>Mahsulotlar</h1>
 
   <div class="search">
     <input [(ngModel)]="searchText" placeholder="Qidirish..." />
@@ -15,8 +16,13 @@
       <div class="image">
         <img src="{{ item.image }}" alt="Xatolik" width="200" height="300" />
       </div>
+      <div class="image">
+        <img src="{{ item.image }}" alt="Xatolik" width="200" height="300" />
+      </div>
 
       <span> Turi: {{ item.category }}</span>
+      <b>{{ item.title.slice(0, 50) + "..." }}</b>
+      <p>{{ item.description.slice(0, 100) + "..." }}</p>
       <b>{{ item.title.slice(0, 50) + "..." }}</b>
       <p>{{ item.description.slice(0, 100) + "..." }}</p>
 
@@ -39,6 +45,9 @@
       </div>
 
       <br />
+      <div class="show-product">
+        <button (click)="showProduct(item.id)">Ko'rish</button>
+      </div>
       <div class="show-product">
         <button (click)="showProduct(item.id)">Ko'rish</button>
       </div>
