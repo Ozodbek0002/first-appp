@@ -6,11 +6,14 @@ import { Product } from '../Interfaces/Product';
   providedIn: 'root',
 })
 export class ProductServiceService {
-
   constructor(public http: HttpClient) {}
 
   getPosts() {
     return this.http.get<Product[]>('https://fakestoreapi.com/products'); //{}
+  }
+
+  getPost(id: number) {
+    return this.http.get<Product>(`https://fakestoreapi.com/products/${id}`); //{}
   }
 
   calculateStars(rate: number) {
