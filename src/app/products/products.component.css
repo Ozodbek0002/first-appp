@@ -32,61 +32,21 @@ h1 {
     color: white;
     cursor: pointer;
   }
-h1 {
-  color: rgb(255, 136, 0);
-  text-align: center;
-  font-size: 72px;
-  margin: 20px 0;
 }
 
-.search {
-  display: flex;
-  justify-content: start;
-  margin: 20px;
-  /* padding: 0px 20px; */
-  font-size: 20px;
-  height: 30px;
-
-  input {
-    width: 300px;
-    height: 30px;
-    border: 1px solid silver;
-    border-radius: 5px;
-    padding: 5px;
-    font-size: 16px;
-  }
-
-  button {
-    width: 100px;
-    height: 42px;
-    border: 1px solid silver;
-    border-radius: 5px;
-    padding: 5px;
-    background-color: green;
-    color: white;
-    cursor: pointer;
-  }
-}
-
-.cards-wrapper {
 .cards-wrapper {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
   justify-content: center;
   gap: 20px;
 }
 
 .cards {
   position: relative;
-  width: 400px;
-  height: 730px;
-  position: relative;
-  width: 400px;
+  width: 300px;
   height: 730px;
   border: 1px solid black;
-  border-radius: 5%;
+  border-radius: 25px;
   margin: 10px;
   padding: 15px;
   font-size: 20px;
@@ -95,12 +55,10 @@ h1 {
     font-size: 24px;
     color: green;
   }
-  b {
-    font-size: 24px;
-    color: green;
-  }
 
   .image {
+    position: relative;
+    right: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -124,7 +82,7 @@ h1 {
 
   span {
     display: block;
-    font-size: 30px;
+    font-size: 20px;
     font-weight: bold;
   }
 
@@ -132,57 +90,7 @@ h1 {
     font-size: 24px;
     color: red;
   }
-  i {
-    font-size: 24px;
-    color: red;
-  }
 
-  p {
-    margin: 10px 0px 10px 0px;
-  }
-}
-
-.count {
-  color: black;
-  margin: 30px 0px 30px 0px !important;
-}
-
-.show-product {
-  position: absolute;
-  width: 100%;
-  bottom: 10px;
-  right: 5px;
-  text-align: center;
-
-  button {
-    color: white;
-    background-color: green;
-    width: 50%;
-    height: 50px;
-    margin-top: 10px;
-    border: 1px solid silver;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 20px;
-    text-align: center;
-    line-height: 50px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    text-decoration: none;
-    text-transform: uppercase;
-  }
-
-  button:hover {
-    background-color: rgb(80, 159, 80);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transform: translateY(-2px);
-    width: 75%;
-    height: 50px;
-    transition: all 0.5s ease;
-  }
-
-  button:active {
-    background-color: rgb(121, 240, 121);
-  }
   p {
     margin: 10px 0px 10px 0px;
   }

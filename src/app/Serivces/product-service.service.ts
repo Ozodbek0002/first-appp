@@ -17,7 +17,7 @@ export class ProductServiceService {
   }
 
   calculateStars(rate: number) {
-    // 3.9
+    // 3.9 example
 
     const full = Math.floor(rate); // 3.9 => 3
     const half = rate - full >= 0.5; // 3.9 - 3 = 0.9 => true

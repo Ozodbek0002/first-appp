@@ -8,6 +8,41 @@ body {
   background-size: cover;
 }
 
+.back {
+  position: absolute;
+  top: 65px;
+  left: 10px;
+  background-color: #ffffff;
+  color: #000;
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  box-shadow: 0 15px 30px 1px rgba(128, 128, 128, 0.31);
+  width: 200px;
+  height: 42px;
+
+  .btn {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Farsan", cursive;
+    font-size: 1.2em;
+    color: #000;
+    background-color: #ffffff;
+    border: none;
+    cursor: pointer;
+    &:hover {
+      background-color: #f0f0f0;
+    }
+    &:focus {
+      outline: none;
+    }
+    text-decoration: none;
+  }
+}
+
 #container {
   box-shadow: 0 15px 30px 1px rgba(128, 128, 128, 0.31);
   background: rgba(255, 255, 255, 0.9);
@@ -40,6 +75,27 @@ body {
   margin: 0;
 }
 
+/*Product Rating  */
+.stars {
+  display: flex;
+  margin-top: 20px;
+}
+
+.star {
+  font-size: 30px;
+  color: #ccc;
+}
+
+.star.full {
+  color: orange;
+}
+
+.star.half {
+  background: linear-gradient(90deg, orange 50%, #ccc 50%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 #container .product-details h1:before {
   position: absolute;
   content: "";
@@ -66,14 +122,6 @@ body {
   }
 }
 
-/*Product Rating  */
-.hint-star {
-  display: inline-block;
-  margin-left: 0.5em;
-  color: gold;
-  width: 50%;
-}
-
 /* The most important information about the product */
 #container .product-details > p {
   font-family: "Farsan", cursive;
@@ -82,8 +130,17 @@ body {
   color: #7d7d7d;
 }
 
-/* control */
+/* Product count  */
+#container .count {
+  font-size: 24px;
+  margin: 20px 0px;
 
+  span {
+    color: #49c608;
+  }
+}
+
+/* control */
 .control {
   position: absolute;
   bottom: 20%;
@@ -207,39 +264,4 @@ body {
 }
 .product-image:hover img {
   transform: scale(1.2, 1.2);
-}
-
-.back {
-  position: absolute;
-  top: 65px;
-  left: 10px;
-  background-color: #ffffff;
-  color: #000;
-  text-decoration: none;
-  padding: 5px 10px;
-  border-radius: 5px;
-  box-shadow: 0 15px 30px 1px rgba(128, 128, 128, 0.31);
-  width: 200px;
-  height: 42px;
-
-  .btn {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: "Farsan", cursive;
-    font-size: 1.2em;
-    color: #000;
-    background-color: #ffffff;
-    border: none;
-    cursor: pointer;
-    &:hover {
-      background-color: #f0f0f0;
-    }
-    &:focus {
-      outline: none;
-    }
-    text-decoration: none;
-  }
 }

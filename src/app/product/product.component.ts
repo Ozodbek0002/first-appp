@@ -27,12 +27,10 @@ export class ProductComponent implements OnInit {
 
       console.log('Product Component Data:', this.Item);
 
-      // this.Items.forEach((item) => {
-      //   const stars = this.ProductService.calculateStars(item.rating.rate);
-      //   item.fullStars = stars.fullStars;
-      //   item.halfStar = stars.halfStar;
-      //   item.emptyStars = stars.emptyStars;
-      // });
+      const stars = this.ProductService.calculateStars(res.rating.rate);
+      this.Item.fullStars = stars.fullStars;
+      this.Item.halfStar = stars.halfStar;
+      this.Item.emptyStars = stars.emptyStars;
     });
   }
 }
