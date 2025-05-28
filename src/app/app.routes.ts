@@ -1,13 +1,12 @@
 import { Routes } from '@angular/router';
 import { ProductsComponent } from './products/products.component';
-import { HomeComponent } from './home/home.component';
 import { ProductComponent } from './product/product.component';
-
+import { NotFountPageComponent } from './shared/not-fount-page/not-fount-page.component';
 
 export const routes: Routes = [
   {
     path: '',
-    component: HomeComponent,
+    component: ProductsComponent,
   },
   {
     path: 'products',
@@ -16,5 +15,9 @@ export const routes: Routes = [
   {
     path: 'products/:id',
     component: ProductComponent,
+  },
+  {
+    path: '**',
+    component: NotFountPageComponent,
   },
 ];
