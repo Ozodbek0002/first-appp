@@ -1,14 +1,14 @@
 <div class="app">
-  <h1>Mahsulotlar</h1>
+  <h1>Products</h1>
 
   <div class="search">
-    <input placeholder="Qidirish..." #input />
-    <button (click)="search(input.value)">Qidirish</button>
+    <input [(ngModel)]="searchText" placeholder="Qidirish..." />
+    <button (click)="search(searchText)">Search..</button>
   </div>
 
   <div class="cards-wrapper">
     <div class="cards" *ngFor="let item of Items">
-      <b> Raqami: {{ item.id }} </b>
+      <b> ID: {{ item.id }} </b>
 
       <br />
 
@@ -16,13 +16,13 @@
         <img src="{{ item.image }}" alt="Xatolik" width="200" height="300" />
       </div>
 
-      <span> Turi: {{ item.category }}</span>
-      <b>{{ item.title.slice(0, 50) + "..." }}</b>
-      <p>{{ item.description.slice(0, 100) + "..." }}</p>
-
-      <i> Narxi: {{ item.price }}$</i>
-
+      <b>{{ item.title.slice(0, 40) + "..." }}</b>
+      <p>{{ item.description.slice(0, 90) + "..." }}</p>
+      
+      <span> Category: {{ item.category }}</span>
+      <i> Price: {{ item.price }}$</i>
       <br />
+
       <br />
       <b class="count"> Soni: {{ item.rating.count }} ta </b>
       <br />
@@ -39,6 +39,7 @@
       </div>
 
       <br />
+
       <div class="show-product">
         <button (click)="showProduct(item.id)">Ko'rish</button>
       </div>

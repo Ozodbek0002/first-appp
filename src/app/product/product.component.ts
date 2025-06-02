@@ -1,25 +1,36 @@
-import { Component, OnInit } from '@angular/core';
-import { Product } from '../Interfaces/Product';
+import { Component, input, OnInit } from '@angular/core';
 import { ProductServiceService } from '../Serivces/product-service.service';
-import { ActivatedRoute } from '@angular/router';
+import { Product } from '../Interfaces/Product';
+import { CommonModule } from '@angular/common';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-product',
-  imports: [],
+  imports: [CommonModule, RouterModule],
   templateUrl: './product.component.html',
-  styleUrl: './product.component.css',
+  styleUrls: ['./product.component.css'],
 })
-export class ProductComponent {
-  Item: Product = {
-    id: 1,
-    title: 'test',
-    price: 105,
-    description: 'lorem16 ipsum dolor sit amet, consectetur adipiscing elit',
-    category: 'electronics',
-    image: 'https://fakestoreapi.com/img/61IBBVJvSDL._AC_SY879_.jpg',
-    rating: {
-      rate: 4,
-      count: 15,
-    },
-  };
+export class ProductComponent implements OnInit {
+  Item: Product = {} as Product;
+  id: number = 1;
+
+  constructor(
+    private ProductService: ProductServiceService,
+    private route: ActivatedRoute
+  ) {
+    this.id = this.route.snapshot.params['id'];
+  }
+
+  ngOnInit(): void {
+    this.ProductService.getPost(this.id).subscribe((res) => {
+      this.Item = res;
+
+      console.log('Product Component Data:', this.Item);
+
+      const stars = this.ProductService.calculateStars(res.rating.rate);
+      this.Item.fullStars = stars.fullStars;
+      this.Item.halfStar = stars.halfStar;
+      this.Item.emptyStars = stars.emptyStars;
+    });
+  }
 }
