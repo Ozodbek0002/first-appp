@@ -15,4 +15,9 @@ export const routes: Routes = [
     path: 'product',
     component: ProductComponent,
   },
+  {
+    path: 'home',
+    loadChildren: () =>
+      import('./modules/clients/clients.module').then((m) => m.ClientsModule),
+  },
 ];
