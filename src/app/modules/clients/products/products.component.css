@@ -43,8 +43,8 @@ h1 {
 
 .cards {
   position: relative;
-  width: 300px;
-  height: 730px;
+  width: 20%;
+  height: 780px;
   border: 1px solid black;
   border-radius: 25px;
   margin: 10px;
