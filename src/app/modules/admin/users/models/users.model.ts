@@ -8,11 +8,11 @@ export interface Person {
 export interface Users {
   id: string;
   name: string;
-  descroption: string;
+  description: string;
   phone: string;
   address: string;
   createdAt: Date;
-  dateOfBith: Date;
+  dateOfBirth: Date;
   dateOfRegister: Date;
   specialization: string;
 }
