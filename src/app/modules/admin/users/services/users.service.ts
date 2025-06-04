@@ -8,7 +8,7 @@ import { Users } from '../models/users.model';
 export class UsersService {
   constructor(private http: HttpClient) {}
 
-  url = 'https://683fe20d5b39a8039a55f6f2.mockapi.io/users/users';
+  url = '/api/users';
 
   getUsers() {
     return this.http.get<Users[]>(this.url);
@@ -29,6 +29,4 @@ export class UsersService {
   deleteUser(id: string) {
     return this.http.delete(`${this.url}/${id}`);
   }
-
-  
 }
