@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Users } from '../models/users.model';
+import { User, UserRequest } from '../models/users.model';
 
 @Injectable({
   providedIn: 'root',
@@ -11,19 +11,19 @@ export class UsersService {
   url = '/api/users';
 
   getUsers() {
-    return this.http.get<Users[]>(this.url);
+    return this.http.get<User[]>(this.url);
   }
 
   getUserById(id: string) {
-    return this.http.get<Users>(`${this.url}/${id}`);
+    return this.http.get<User>(`${this.url}/${id}`);
   }
 
-  addUser(user: Users) {
-    return this.http.post<Users>(this.url, user);
+  addUser(user: UserRequest) {
+    return this.http.post<UserRequest>(this.url, user);
   }
 
-  updateUser(id: string, user: Users) {
-    return this.http.put<Users>(`${this.url}/${id}`, user);
+  updateUser(id: string, user: User) {
+    return this.http.put<User>(`${this.url}/${id}`, user);
   }
 
   deleteUser(id: string) {

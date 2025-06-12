@@ -3,3 +3,7 @@ nz-button-group {
   margin-right: 8px;
   vertical-align: bottom;
 }
+
+.mb-2 {
+  margin-bottom: 8px;
+}

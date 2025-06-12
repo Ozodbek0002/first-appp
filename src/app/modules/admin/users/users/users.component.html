@@ -1,4 +1,8 @@
-<nz-table #basicTable [nzData]="listOfData">
+<button nz-button (click)="addModal()" class="mb-2" nzType="primary">
+  Add User
+</button>
+
+<nz-table #basicTable [nzData]="listOfData" ngSkipHydration>
   <thead>
     <tr>
       <th>ID</th>
@@ -14,7 +18,8 @@
     </tr>
   </thead>
   <tbody>
-    @for (data of basicTable.data; track data) {
+    @if (basicTable?.data && basicTable.data.length > 0) { @for (data of
+    basicTable.data; track data.id) {
     <tr>
       <td>{{ data.id }}</td>
       <td>{{ data.name }}</td>
@@ -35,6 +40,10 @@
           </button>
         </nz-button-group>
       </td>
+    </tr>
+    } } @else {
+    <tr>
+      <td colspan="10">Loading...</td>
     </tr>
     }
   </tbody>

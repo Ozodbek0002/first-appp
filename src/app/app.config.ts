@@ -9,6 +9,7 @@ import {
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import * as AllIcons from '@ant-design/icons-angular/icons';
 import { NZ_ICONS } from 'ng-zorro-antd/icon';
+import { NZ_I18N, en_US } from 'ng-zorro-antd/i18n';
 
 const antDesignIcons = (
   Object.keys(AllIcons) as Array<keyof typeof AllIcons>
@@ -22,6 +23,7 @@ export const appConfig: ApplicationConfig = {
     provideClientHydration(withEventReplay()),
     { provide: NZ_ICONS, useValue: antDesignIcons },
     provideAnimationsAsync(),
-    provideHttpClient(withFetch()), 
+    provideHttpClient(withFetch()),
+    { provide: NZ_I18N, useValue: en_US },
   ],
 };
