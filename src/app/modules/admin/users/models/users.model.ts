@@ -6,7 +6,7 @@ export interface Person {
 }
 
 export interface User {
-  id: string;
+  id: number;
   name: string;
   description: string;
   phone: string;
@@ -21,7 +21,17 @@ export interface UserRequest {
   description: string;
   phone: string;
   address: string;
-  dateOfBirth: Date;
-  dateOfRegister: Date;
+  dateOfBirth: Date | null;
+  dateOfRegister: Date | null;
   specialization: string;
+}
+
+export interface UserFormData {
+  name: string | null;
+  description: string | null;
+  phone: string | null;
+  address: string | null;
+  dateOfBirth: Date | null;
+  dateOfRegister: Date | null;
+  specialization: string | null;
 }

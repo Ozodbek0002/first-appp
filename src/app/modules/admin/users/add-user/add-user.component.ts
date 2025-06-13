@@ -11,6 +11,8 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzModalService } from 'ng-zorro-antd/modal';
 import { NzRadioModule } from 'ng-zorro-antd/radio';
+import { UsersService } from '../services/users.service';
+import { UserFormData, UserRequest } from '../models/users.model';
 
 @Component({
   selector: 'app-add-user',
@@ -27,8 +29,10 @@ import { NzRadioModule } from 'ng-zorro-antd/radio';
   styleUrl: './add-user.component.css',
 })
 export class AddUserComponent {
+  [x: string]: any;
   private fb = inject(NonNullableFormBuilder);
   private _modalService = inject(NzModalService);
+  private _usersService = inject(UsersService);
 
   validateForm = this.fb.group({
     name: this.fb.control('', [Validators.required]),
@@ -42,6 +46,55 @@ export class AddUserComponent {
 
   submitForm(): void {
     console.log('submit', this.validateForm.value);
+    if (this.validateForm.valid) {
+      const formValue = this.validateForm.value as UserFormData;
+
+      if (this.isValidUserData(formValue)) {
+        const userRequest: UserRequest = {
+          name: formValue.name ? formValue.name : '',
+          description: formValue.description ? formValue.description : '',
+          phone: formValue.phone ? formValue.phone : '',
+          address: formValue.address ? formValue.address : '',
+          dateOfBirth: formValue.dateOfBirth ? formValue.dateOfBirth : null,
+          dateOfRegister: formValue.dateOfRegister
+            ? formValue.dateOfRegister
+            : null,
+          specialization: formValue.specialization
+            ? formValue.specialization
+            : '',
+        };
+
+        this._usersService.addUser(userRequest).subscribe({
+          next: () => {
+            this.CloseModal();
+            this._modalService.success({
+              nzTitle: 'User Added Successfully',
+              nzContent: 'The user has been added successfully.',
+              nzOnOk: () => {
+                this.resetForm(new MouseEvent(''));
+              },
+              
+            });
+            this._usersService.reload(); // Assuming this method reloads the user list
+          },
+          error: (error) => {
+            console.error('Error adding user:', error);
+          },
+        });
+      }
+    }
+  }
+
+  isValidUserData(data: UserFormData): data is Required<UserFormData> {
+    return !!(
+      data.name &&
+      data.description &&
+      data.phone &&
+      data.address &&
+      data.dateOfBirth &&
+      data.dateOfRegister &&
+      data.specialization
+    );
   }
 
   resetForm(e: MouseEvent): void {

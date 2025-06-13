@@ -68,7 +68,6 @@
             "development": {
               "buildTarget": "first-app:build:development",
               "proxyConfig": "proxy.config.json"
-              
             }
           },
           "defaultConfiguration": "development"

@@ -36,7 +36,12 @@
             <span nz-icon nzType="edit" nzTheme="twotone"></span>
           </button>
           <button nz-button>
-            <span nz-icon nzType="delete" nzTheme="twotone"></span>
+            <span
+              nz-icon
+              nzType="delete"
+              (click)="DeleteUser(data)"
+              nzTheme="twotone"
+            ></span>
           </button>
         </nz-button-group>
       </td>
