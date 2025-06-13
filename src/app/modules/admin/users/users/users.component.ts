@@ -31,8 +31,12 @@ export class UsersComponent {
   ) {}
 
   ngOnInit(): void {
-    this._usersService.getUsers().subscribe((data) => {
-      this.listOfData = data.sort((a, b) => a.id - b.id);
+    // Birinchi marta yuklash
+    this._usersService.loadUsers();
+
+    // Subject'ga obuna bo'lish
+    this._usersService.users$.subscribe((users) => {
+      this.listOfData = users;
     });
   }
 
@@ -56,7 +60,7 @@ export class UsersComponent {
         this._usersService.deleteUser(user.id).subscribe(() => {
           this.listOfData = this.listOfData.filter((u) => u.id !== user.id);
         });
-      },  
+      },
     });
   }
 }

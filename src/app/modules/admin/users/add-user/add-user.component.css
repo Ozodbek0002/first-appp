@@ -1,3 +1,11 @@
 /* [nz-form]:not(.ant-form-inline):not(.ant-form-vertical) {
   max-width: 600px;
 } */
+
+.reset-button {
+  margin-right: 8px;
+}
+
+.ant-picker {
+  width: 100%;
+}

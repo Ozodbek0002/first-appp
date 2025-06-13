@@ -69,13 +69,8 @@ export class AddUserComponent {
             this.CloseModal();
             this._modalService.success({
               nzTitle: 'User Added Successfully',
-              nzContent: 'The user has been added successfully.',
-              nzOnOk: () => {
-                this.resetForm(new MouseEvent(''));
-              },
-              
             });
-            this._usersService.reload(); // Assuming this method reloads the user list
+            this._usersService.loadUsers();
           },
           error: (error) => {
             console.error('Error adding user:', error);
